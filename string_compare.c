@@ -10,8 +10,8 @@ uint8_t StringEqual(char chuoi1[], char chuoi2[]){
     }
     return 1;
 }
-char chuoi1[] = "abc";
-char chuoi2[] = "abc";
+char chuoi1[] = "Hello world";
+char chuoi2[] = "Hello world!!!!!!!";
 int main(int argc, char const *argv[])
 {
     printf("%d", StringEqual(chuoi1,chuoi2));
