@@ -42,7 +42,7 @@ Vector Init_Linked_List()
 
     for (int i=0; i < n; i++)
     {
-        printf("Nhap gia tri so %d = ",i+1);
+        printf("Nhap gia tri so %d = ",i);
         scanf("%d",&value);
         first = Vector_push_back(first,value);
     }
@@ -58,10 +58,46 @@ int Get(Vector node,int index){
     }
     return p->data;
 }
+
+Vector Delete_last_node(Vector node){
+    Vector p, temp;
+    p = node;
+    if (p->next == NULL){
+        //free(p);
+        temp = NULL;
+        return temp;
+    }
+    while (p->next != NULL)
+    {
+        temp = p;
+        p = p->next;
+    }
+    temp->next = NULL;
+    free(p);
+    return node;  
+}
+
+void Show_all_node(Vector node){
+    int i=0;
+    Vector p = node;
+    if (p == NULL){
+        printf("Khong co phan tu");
+    
+    } else {
+    printf("Node %d = %d\n",i,p->data);
+    while (p->next != NULL){
+        p = p->next;
+        i++;
+        printf("Node %d = %d\n",i,p->data);
+    };
+    }
+}
 int main(int argc, char const *argv[])
 {
     Vector vt = Init_Linked_List();
-    printf("Gia tri so 3 %d",Get(vt,2));
+    //printf("Gia tri so 3 %d",Get(vt,2));
+    vt = Delete_last_node(vt);
+    Show_all_node(vt);
     return 0;
 }
 
