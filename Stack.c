@@ -42,8 +42,7 @@ void pop(Stack node){
     Stack temp;
     if (top > -1){
         if (p->position == 0 && p->next == NULL){
-            free(p);
-            top--;
+            top = -1;
         } else {
             while (p->next != NULL){
                 temp = p;
@@ -73,7 +72,7 @@ int Last_node(Stack node){
 void Show_all_node(Stack node){
     int i=0;
     Stack p = node;
-    if (p == NULL){
+    if (p == NULL || top == -1){
         printf("Khong co phan tu");
 
     } else {
