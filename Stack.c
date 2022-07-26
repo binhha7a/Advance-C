@@ -37,11 +37,11 @@ void push(Stack node, int value)
         p->next = new;
     }
 };
-void pull(Stack node){
+void pop(Stack node){
     Stack p = node;
     Stack temp;
     if (top > -1){
-        if (p->next == NULL){
+        if (p->position == 0 && p->next == NULL){
             free(p);
             top--;
         } else {
@@ -85,15 +85,39 @@ void Show_all_node(Stack node){
     };
     }
 }
+void Enter_Stack(Stack node)
+{
+    int n, value;
+    do 
+    {
+        printf("Nhap so phan tu n= ");
+        scanf("%d",&n);
+    } while (n<=0);
+
+    for (int i=0; i < n; i++)
+    {
+        printf("Nhap gia tri so %d = ",i);
+        scanf("%d",&value);
+        push(node,value);
+    }
+}
 int main(int argc, char const *argv[])
 {
     //printf("Enter size of stack ");
     //scanf("%d",&size);
     size = 5;
     Stack vt = init_stack(size);
-    push(vt,100);
-    push(vt,111);
-    printf("data = %d,position = %d , add= %x\n",vt->data,vt->position,vt);
+    //push(vt,100);
+    //push(vt,111);
+    Enter_Stack(vt);
+    //Show_all_node(vt);
+    int i;
+    printf("Nhap so phan tu muon remove ");
+    scanf("%d",&i);
+    while (i>0){
+        i--;
+        pop(vt);
+    }
     Show_all_node(vt);
     return 0;
 }
