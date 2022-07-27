@@ -102,14 +102,10 @@ void Enter_Stack(Stack node)
 }
 int main(int argc, char const *argv[])
 {
-    //printf("Enter size of stack ");
-    //scanf("%d",&size);
+
     size = 5;
     Stack vt = init_stack(size);
-    //push(vt,100);
-    //push(vt,111);
     Enter_Stack(vt);
-    //Show_all_node(vt);
     int i;
     printf("Nhap so phan tu muon remove ");
     scanf("%d",&i);
